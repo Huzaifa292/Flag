@@ -1,0 +1,176 @@
+body {
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.pole {
+  width: 12px;
+  height: 400px;
+  background: linear-gradient(to bottom, #ccc, #888);
+  border-radius: 6px;
+  margin-right: 8px;
+  box-shadow: 0 0 12px rgba(255,255,255,0.6);
+
+  opacity: 0;
+  transform: translateY(-100px);
+  animation: showPole 1s forwards;
+}
+
+
+.flag {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateX(-50px);
+
+  animation: 
+    showFlag 1s forwards 1s,
+    wave 3s infinite ease-in-out 3.5s;
+}
+
+
+.white {
+  width: 25%;
+  height: 100%;
+  background: white;
+  position: absolute;
+  left: 0;
+
+  opacity: 0;
+  transform: scaleX(0);
+  animation: showWhite 0.5s forwards 2s;
+}
+
+
+.green {
+  width: 75%;
+  height: 100%;
+  background: #01411C;
+  position: absolute;
+  right: 0;
+
+  opacity: 0;
+  transform: scaleX(0);
+  animation: showGreen 0.5s forwards 2s;
+}
+
+
+.moon {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 50px;
+  right: 70px;
+
+  opacity: 0;
+  transform: scale(0);
+  animation: showMoon 0.5s forwards 2.5s;
+}
+
+.moon::after {
+  content: '';
+  width: 80px;
+  height: 80px;
+  background: #01411C;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
+}
+
+
+.star {
+  position: absolute;
+  top: 70px;
+  right: 50px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid white;
+
+  opacity: 0;
+  transform: rotate(35deg) scale(0);
+  animation: showStar 0.5s forwards 3s;
+}
+
+.star::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -15px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 30px solid white;
+}
+
+
+
+@keyframes showPole {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes showFlag {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes showWhite {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes showGreen {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes showMoon {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes showStar {
+  to {
+    opacity: 1;
+    transform: rotate(40deg) scale(1);
+  }
+}
+
+@keyframes wave {
+  0% { transform: skewY(0deg); }
+  50% {transform: skewY(4deg); }
+  109% {transform: skewY(0deg); }
+}
+
+
+
+
+
+
